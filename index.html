@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Income Tax Calculator</h1>
+            <p>Calculate your federal income tax quickly and accurately</p>
+        </div>
+
+        <div class="main-content">
+            <div class="calculator-section">
+                <h2>📊 Tax Information</h2>
+                <form id="taxForm">
+                    <div class="form-group">
+                        <label for="income">Annual Income ($)</label>
+                        <input type="number" id="income" placeholder="Enter your annual income" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filingStatus">Filing Status</label>
+                        <select id="filingStatus" required>
+                            <option value="">Select filing status</option>
+                            <option value="single">Single</option>
+                            <option value="marriedJointly">Married Filing Jointly</option>
+                            <option value="marriedSeparately">Married Filing Separately</option>
+                            <option value="headOfHousehold">Head of Household</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deductions">Standard/Itemized Deductions ($)</label>
+                        <input type="number" id="deductions" placeholder="Enter deductions amount">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">State (for state tax estimation)</label>
+                        <select id="state">
+                            <option value="none">No State Tax</option>
+                            <option value="low">Low Tax State (2-4%)</option>
+                            <option value="medium">Medium Tax State (5-7%)</option>
+                            <option value="high">High Tax State (8-13%)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">Calculate Tax</button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <h2>📈 Tax Results</h2>
+                <div id="resultsContainer">
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <h3>Federal Tax</h3>
+                            <div class="amount" id="federalTax">$0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>State Tax</h3>
+                            <div class="amount" id="stateTax">$0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Total Tax</h3>
+                            <div class="amount" id="totalTax">$0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>After-Tax Income</h3>
+                            <div class="amount" id="afterTaxIncome">$0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="breakdown" id="breakdown" style="display: none;">
+                        <h3>Tax Breakdown</h3>
+                        <div id="breakdownItems"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>📋 Calculation History</h2>
+            <div id="historyContainer">
+                <p style="color: #999; text-align: center;">No calculations yet. Start by calculating your tax above!</p>
+            </div>
+            <button class="clear-history" id="clearHistory" style="display: none;">Clear History</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
